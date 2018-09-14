@@ -19,7 +19,7 @@ class UserContainer extends Component {
         return (
             /* jshint ignore:start */ // JSX is not supported
             <div>
-                Texto ... Algo va aqui...
+                User Container
                 <UserList></UserList>
             </div>
             /* jshint ignore:end */
