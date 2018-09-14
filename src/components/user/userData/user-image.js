@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './styles.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Avatar from '@material-ui/core/Avatar';
 

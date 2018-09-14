@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './styles.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Typography from '@material-ui/core/Typography';
 import MailOutline from '@material-ui/icons/MailOutline';
@@ -9,7 +10,7 @@ const UserInfo = () => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
-            <Grid>
+            <Grid className="user-info">
                 <Row>
                     <Col>
                         <Typography gutterBottom variant="headline" component="h2">
