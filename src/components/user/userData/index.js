@@ -21,12 +21,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 const UserData = ({classes}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
-        // <div>
-        //     User Data
-        //     <UserImage></UserImage>
-        //     <UserInfo></UserInfo>
-        //     <UserActions></UserActions>
-        // </div>
         // image="https://picsum.photos/300/200/?image=872&blur"
         // https://randomuser.me/api/portraits/men/4.jpg
         // https://picsum.photos/300/200/?image=257
@@ -34,7 +28,7 @@ const UserData = ({classes}) => {
           <CardActionArea>
             <CardMedia
                 className="card-media"
-                image="https://picsum.photos/300/200/?image=872"
+                image={require('./../../../assets/images/man-back.jpg')}
                 title="Male User"
             />
             <CardContent className="card-content">
