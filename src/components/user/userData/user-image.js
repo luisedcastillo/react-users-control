@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Avatar from '@material-ui/core/Avatar';
 
-const UserImage = () => {
+const UserImage = ({userId}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
@@ -21,6 +22,10 @@ const UserImage = () => {
         </div>
      /* jshint ignore:end */
     );
+};
+
+UserImage.propTypes = {
+    userId: PropTypes.number.isRequired,
 };
 
 export default UserImage;

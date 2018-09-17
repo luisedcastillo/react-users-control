@@ -2,6 +2,7 @@ import React from 'react';
 import UserActions from './user-actions';
 import UserImage from './user-image';
 import UserInfo from './user-info';
+import PropTypes from 'prop-types';
  
 //Design
 import './styles.css';
@@ -12,13 +13,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-
-
 // import Divider from '@material-ui/core/Divider';
 // import Person from '@material-ui/icons/Person';
 
+const UserData = ({user}) => {
 
-const UserData = ({classes}) => {
+    const {id,  name, email, phone } = user;
+
     return (
          /* jshint ignore:start */ // JSX is not supported
         // image="https://picsum.photos/300/200/?image=872&blur"
@@ -32,8 +33,8 @@ const UserData = ({classes}) => {
                 title="Male User"
             />
             <CardContent className="card-content">
-                <UserImage></UserImage>
-                <UserInfo></UserInfo>
+                <UserImage userId={id}></UserImage>
+                <UserInfo name={name} email={email} phone={phone}></UserInfo>
             </CardContent>
             </CardActionArea>
             <CardActions>
@@ -43,6 +44,15 @@ const UserData = ({classes}) => {
         </Card>
      /* jshint ignore:end */
     );
+};
+
+UserData.propTypes = {
+    user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+    })
 };
 
 export default UserData;

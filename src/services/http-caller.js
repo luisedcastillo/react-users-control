@@ -1,2 +1,5 @@
 export const get = url =>  
-        fetch(url.then(resolve => resolve.json()));
+                fetch(url)
+                .then(response => {
+                        return response.json();
+                });   

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -6,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import MailOutline from '@material-ui/icons/MailOutline';
 import PhoneAndroid from '@material-ui/icons/PhoneAndroid';
 
-const UserInfo = () => {
+const UserInfo = ({name, email, phone}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
@@ -14,7 +15,7 @@ const UserInfo = () => {
                 <Row>
                     <Col>
                         <Typography gutterBottom variant="headline" component="h2">
-                            Luis Castillo
+                            {name}
                         </Typography>
                     </Col>
                 </Row>
@@ -24,7 +25,7 @@ const UserInfo = () => {
                     </Col>
                     <Col xs={10}>
                         <Typography component="p">
-                            614 - 412 33 44
+                            {phone}
                         </Typography>
                     </Col>
                 </Row>
@@ -34,7 +35,7 @@ const UserInfo = () => {
                     </Col>
                     <Col xs={10}>
                         <Typography component="p">
-                            luiseduardo@hexaware.com
+                            {email}
                         </Typography>
                     </Col>
                 </Row>
@@ -42,6 +43,12 @@ const UserInfo = () => {
         </div>
      /* jshint ignore:end */
     );
+};
+
+UserInfo.propTypes = {
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
 };
 
 export default UserInfo;

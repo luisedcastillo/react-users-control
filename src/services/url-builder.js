@@ -10,15 +10,14 @@ class UrlBuilder {
 
     withChild(child) {
         this.children.push(child);
+        return this;
     }
 
     build() {
-        const finalUrl = this.baseUrl;
-
+        let finalUrl = this.baseUrl;
         if(this.children && this.children.length > 0){
-            finalUrl.concat(this.children);
+            finalUrl = finalUrl.concat(this.children);
         }
-
         return finalUrl;
     }
 }
