@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 import { getUsers } from './../services/users-service';
 import { toUsers } from './../services/user-mapper';
 import UserList from '../components/user-list';
+import ProgressIndicator from '../components/progress-indicator';
+import './styles.css';
 
 class UserContainer extends Component {
     
@@ -12,6 +14,8 @@ class UserContainer extends Component {
         };
     }
 
+
+
     fillUsers(){
         getUsers()
         .then(data => {
@@ -21,7 +25,6 @@ class UserContainer extends Component {
             });
         })
         .catch(error => {
-            console.log('Error');
             console.error(error);
         });
     }
@@ -34,11 +37,22 @@ class UserContainer extends Component {
         const {users} = this.state;
         return (
             /* jshint ignore:start */ // JSX is not supported
+            // <div>
+            //     {
+            //     users
+            //         ? <UserList users={users}></UserList>
+            //         : (<div className="progress-indicator">
+            //             <ProgressIndicator></ProgressIndicator>
+            //            </div>)
+            //     }
+            // </div>
             <div>
                 {
-                users
-                    ? <UserList users={users}></UserList>
-                    : 'Cargando....!!'
+                    users
+                        ? <UserList users={users}></UserList>
+                        : (<div className="progress-indicator">
+                            <ProgressIndicator></ProgressIndicator>
+                        </div>)
                 }
             </div>
             /* jshint ignore:end */

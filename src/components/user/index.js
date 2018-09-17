@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserData from './userData';
 
+import Grow from '@material-ui/core/Grow'
+
 const User = ({user}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
-            <UserData user={user}></UserData>
+            <Grow in={user}>
+                <UserData user={user}></UserData>
+            </Grow>
         </div>
      /* jshint ignore:end */
     );
