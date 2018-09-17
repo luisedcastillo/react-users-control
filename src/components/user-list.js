@@ -1,22 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import User from './user';
 
-const user = {
-    id: 100,
-    name: 'Luis Ramirez',
-    phone: '123 123 123 123',
-    email: 'todook@todito.com.mx'
-}
+const renderProgress = () => {
+    return 'Loading.....';
+};
 
-const UserList = () => {
+const renderUserItem = (users) => {
+    return users.map(user => (
+        /* jshint ignore:start */ // JSX is not supported
+        <User user={user} key={user.name}></User>
+        /* jshint ignore:end */ // JSX is not supported
+    ));
+};
+
+const UserList = ({users}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
-            User List
-            <User user={user}></User>
+            {
+                users    
+                    ? renderUserItem(users)
+                    : renderProgress()
+                    
+            }
         </div>
      /* jshint ignore:end */
     );
+};
+
+UserList.propTypes = {
+    users: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+    })).isRequired,
 };
 
 export default UserList;

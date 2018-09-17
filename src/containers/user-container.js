@@ -15,9 +15,7 @@ class UserContainer extends Component {
     fillUsers(){
         getUsers()
         .then(data => {
-            console.log('Aqui');
             const users = toUsers(data);
-            console.log(users);
             this.setState({
                 users
             });
@@ -30,20 +28,18 @@ class UserContainer extends Component {
 
     componentDidMount() {
         this.fillUsers();
-        //console.log(this.state.users);
-        
     }
     
-    componentDidUpdate(prevProps, prevState) {
-        
-    }
-
     render() {
+        const {users} = this.state;
         return (
             /* jshint ignore:start */ // JSX is not supported
             <div>
-                User Container
-                <UserList></UserList>
+                {
+                users
+                    ? <UserList users={users}></UserList>
+                    : 'Cargando....!!'
+                }
             </div>
             /* jshint ignore:end */
         );
