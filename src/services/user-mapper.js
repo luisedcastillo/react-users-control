@@ -1,3 +1,5 @@
+import {FEMALE, MALE} from './../constants/user-constants'
+
 export const toUser = data => {
     const { name, email, phone, id } = data;
 
@@ -5,7 +7,8 @@ export const toUser = data => {
         id,
         name,
         email,
-        phone
+        phone,
+        gender: id % 3 !== 0 ? MALE : FEMALE
     };
 };
 

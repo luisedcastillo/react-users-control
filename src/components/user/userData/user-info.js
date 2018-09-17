@@ -14,12 +14,12 @@ const UserInfo = ({name, email, phone}) => {
             <Grid className="user-info">
                 <Row>
                     <Col>
-                        <Typography gutterBottom variant="headline" component="h2">
+                        <Typography gutterBottom variant="headline" component="h2" className="name-text">
                             {name}
                         </Typography>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="info-text" start="xs">
                     <Col xs={2}>
                         <PhoneAndroid></PhoneAndroid>
                     </Col>
@@ -29,7 +29,7 @@ const UserInfo = ({name, email, phone}) => {
                         </Typography>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="info-text"  start="xs">
                     <Col xs={2}>
                         <MailOutline></MailOutline>
                     </Col>

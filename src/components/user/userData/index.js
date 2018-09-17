@@ -3,6 +3,7 @@ import UserActions from './user-actions';
 import UserImage from './user-image';
 import UserInfo from './user-info';
 import PropTypes from 'prop-types';
+import {convertGenderToUrlPath} from './../../../services/user-converters';
  
 //Design
 import './styles.css';
@@ -18,7 +19,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const UserData = ({user}) => {
 
-    const {id,  name, email, phone } = user;
+    const {id,  name, email, phone, gender } = user;
+    const genderUrl = convertGenderToUrlPath(gender);
 
     return (
          /* jshint ignore:start */ // JSX is not supported
@@ -29,11 +31,11 @@ const UserData = ({user}) => {
           <CardActionArea>
             <CardMedia
                 className="card-media"
-                image={require('./../../../assets/images/man-back.jpg')}
+                image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
                 title="Male User"
             />
             <CardContent className="card-content">
-                <UserImage userId={id}></UserImage>
+                <UserImage userId={id} gender={gender}></UserImage>
                 <UserInfo name={name} email={email} phone={phone}></UserInfo>
             </CardContent>
             </CardActionArea>

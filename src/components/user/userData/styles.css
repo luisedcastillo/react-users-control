@@ -1,7 +1,8 @@
 
 .card {
-    max-width: 250px;
-    margin: 50px;
+    /* max-width: 250px; */ 
+    width: 250px; 
+    margin-top: 20px;
 }
 
 .card-media {
@@ -15,10 +16,17 @@
 
 .user-avatar {
     margin-top: -70px;
+    margin-right:30px;
     min-width: 70px;
     min-height: 70px;
   }
 
-.user-info {
-    margin-left: -20px !important;
+.name-text{
+    padding-right: 50px;
+}
+
+
+.info-text{
+    padding-right: 30px;
+    margin-right: 70px;
 }

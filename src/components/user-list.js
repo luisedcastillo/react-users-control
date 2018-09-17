@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import User from './user';
+import './user/userData/styles.css'
+
+import {Grid, Row, Col} from  'react-flexbox-grid'
 
 const renderProgress = () => {
     return 'Loading.....';
@@ -9,7 +12,9 @@ const renderProgress = () => {
 const renderUserItem = (users) => {
     return users.map(user => (
         /* jshint ignore:start */ // JSX is not supported
-        <User user={user} key={user.name}></User>
+        <Col xs={12} md={4} lg={3} className="card" key={user.name}>
+            <User user={user} ></User>
+        </Col>
         /* jshint ignore:end */ // JSX is not supported
     ));
 };
@@ -17,14 +22,16 @@ const renderUserItem = (users) => {
 const UserList = ({users}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
-        <div>
+        <Grid>
+            <Row center="xs">
             {
                 users    
                     ? renderUserItem(users)
                     : renderProgress()
                     
             }
-        </div>
+            </Row>
+        </Grid>
      /* jshint ignore:end */
     );
 };
