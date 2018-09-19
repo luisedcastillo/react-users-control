@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import nonameReducer from './../reducers';
 
 const initializeState = {
-    //users: null
+    //users: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

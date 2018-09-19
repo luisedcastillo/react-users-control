@@ -4,7 +4,7 @@ import { getUsersUrl } from './../services/users-service';
 import { toUsers } from './../services/user-mapper';
 
 //export const SET_USER = 'SET_USER';
-export const SET_USERS = 'SET_USERS';
+//export const SET_USERS = 'SET_USERS';
 export const GET_USERS_INFO = 'GET_USERS_INFO';
 export const SET_USERS_INFO = 'SET_USERS_INFO';
 

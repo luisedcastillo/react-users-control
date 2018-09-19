@@ -8,7 +8,7 @@ const User = ({user}) => {
     return (
          /* jshint ignore:start */ // JSX is not supported
         <div>
-            <Grow in={user}>
+            <Grow In={user}>
                 <UserData user={user}></UserData>
             </Grow>
         </div>

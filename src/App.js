@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserContainer from './containers/user-container';
+import UsersContainer from './containers/users-container';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
       // </div>
       
       /* jshint ignore:start */ // JSX is not supported
-      <UserContainer></UserContainer>
+      <UsersContainer></UsersContainer>
       /* jshint ignore:end */
     );
   }

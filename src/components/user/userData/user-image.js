@@ -17,7 +17,7 @@ const UserImage = ({userId, gender}) => {
                 <Row center="xs">
                     <Col>
                         <Avatar
-                        alt={userId}
+                        alt={userId.toString()}
                         src={`https://randomuser.me/api/portraits/${genderUrl}/${userId}.jpg`}
                         className="user-avatar"  />
                     </Col>
