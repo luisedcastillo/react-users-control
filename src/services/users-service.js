@@ -4,7 +4,7 @@ import {BASE_URL, USERS} from '../constants/api-constants';
 
 let usersUrl = null;
 
-const getUsersUrl = () => {
+export const getUsersUrl = () => {
     if(!usersUrl){
         usersUrl = new UrlBulder(BASE_URL)
                     .withChild(USERS)
