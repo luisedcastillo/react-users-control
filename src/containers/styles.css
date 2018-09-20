@@ -1,3 +1,15 @@
 .progress-indicator {
     margin-top: 100px;
 }
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: -12;
+    margin-right: 20;
+}
+
+.banner {
+    margin-top: 15px;
+    width: 100%; /* ie8 */
+}

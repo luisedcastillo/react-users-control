@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import User from './user';
 
-import {Grid, Row, Col} from  'react-flexbox-grid'
+import {Grid, Row, Col} from  'react-flexbox-grid';
 
 const renderUserItem = (users) => {
     return users.map(user => (
