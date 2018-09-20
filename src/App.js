@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import UsersContainer from './containers/users-container';
 import MenuContainer from './containers/menu-container';
 import HomeContainer from './containers/home-container';
@@ -22,19 +23,22 @@ class App extends Component {
       /* jshint ignore:start */ // JSX is not supported
       // <UsersContainer></UsersContainer>
       /* jshint ignore:end */
-      <div>
-        <MenuContainer></MenuContainer>
-        <Grid>
-          <Row>
-            <Col>
-              <HomeContainer></HomeContainer>
-            </Col>
-          </Row>
-        </Grid>
-        
-       
-        {/* <UsersContainer></UsersContainer> */}
-      </div>
+      <Router>
+        <div>
+          <MenuContainer></MenuContainer>
+          <Grid>
+            <Row>
+              <Col>
+                  <div>
+                      <Route exact path="/" component={HomeContainer}></Route>
+                      <Route exact path="/home" component={HomeContainer}></Route>
+                      <Route exact path="/users" component={UsersContainer}></Route>
+                  </div>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      </Router>
       
     );
   }

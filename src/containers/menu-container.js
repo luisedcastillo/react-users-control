@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -42,6 +43,7 @@ class MenuContainer extends Component{
 
     handleChange = (event, value) => {
         this.setState({ value });
+        this.props.history.push(`/${value}`);
     }
 
     render(){
@@ -79,4 +81,4 @@ MenuContainer.propTypes = {
 };
 
 //export default MasterMenu;
-export default withStyles(styles)(MenuContainer);
+export default withRouter(withStyles(styles)(MenuContainer));
