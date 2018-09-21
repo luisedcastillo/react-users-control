@@ -60,6 +60,7 @@ class MenuContainer extends Component{
                     Users Manager
                 </Typography>
                 <BottomNavigation
+                    className="menu" 
                     color="inherit"
                     value={value}
                     onChange={this.handleChange} 

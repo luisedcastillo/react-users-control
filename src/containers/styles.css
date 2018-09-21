@@ -13,3 +13,7 @@
     margin-top: 15px;
     width: 100%; /* ie8 */
 }
+
+.menu {
+    background-color: inherit !important; 
+}
