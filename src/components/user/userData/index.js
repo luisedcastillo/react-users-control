@@ -9,7 +9,7 @@ import {convertGenderToUrlPath} from './../../../services/user-converters';
 import './styles.css';
 
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -29,15 +29,15 @@ const UserData = ({user}) => {
         // https://picsum.photos/300/200/?image=257
         <Card className="card" raised>
             
-                <CardMedia
-                    className="card-media"
-                    image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
-                    title="Male User"
-                />
-                <CardContent className="card-content">
-                    <UserImage userId={id} gender={gender}></UserImage>
-                    <UserInfo name={name} email={email} phone={phone}></UserInfo>
-                </CardContent>
+            <CardMedia
+                className="card-media"
+                image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
+                title="Male User"
+            />
+            <CardContent className="card-content">
+                <UserImage userId={id} gender={gender}></UserImage>
+                <UserInfo name={name} email={email} phone={phone}></UserInfo>
+            </CardContent>
             
             <CardActions>
                 {/* <Divider light /> */}

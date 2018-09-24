@@ -2,8 +2,9 @@ import React,{ Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { setUsers } from './../actions';
-import { getUsersFromState } from './../reducers';
+import { fetchUsers } from './../actions/fetchUsers';
+import { getUsers } from './../selectors/users';
+
 
 import UserList from '../components/user-list';
 import ProgressIndicator from '../components/progress-indicator';
@@ -13,8 +14,8 @@ class UsersContainer extends Component {
 
     componentDidMount() {
         //Redux implementation
-        const {fillUsers} = this.props;
-        fillUsers();
+        const {fetchUsers} = this.props;
+        fetchUsers();
     }
   
     render() {
@@ -40,12 +41,12 @@ UsersContainer.propTypes = {
     users: PropTypes.array,
 };
 
-const mapDispatcherToProps = dispatch => ({
-    fillUsers: () => dispatch(setUsers())
-});
+const mapDispatcherToProps = {
+    fetchUsers
+};
 
 const mapStateToProps = state => ({
-    users: getUsersFromState(state)
+    users: getUsers(state)
 });
 
 export default connect(mapStateToProps, mapDispatcherToProps)(UsersContainer);
