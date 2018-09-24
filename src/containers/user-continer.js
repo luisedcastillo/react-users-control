@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { getUserById  } from './../selectors/users';
 import { fetchUsers } from './../actions/fetchUsers';
+import { updateUser } from './../actions/updateUser';
 
 import EditUserForm from './../components/user/user-form/edit-user-form';
 import ViewUserForm from './../components/user/user-form';
@@ -19,13 +20,8 @@ class UserContainer extends Component {
     };
 
     handleSubmitUser = values => {
-        console.log("Handle UPDATE");
-
-        console.log(values);
-        //debugger;
-        //const { id } = values;
-        //return this.props.updateCustomer(id, values);
-
+        const { id } = values;
+        return this.props.updateUser(id, values);
     };
 
     handleSubmitUserSuccess = () => {
@@ -72,6 +68,7 @@ UserContainer.propTypes = {
     id: PropTypes.string.isRequired,
     user: PropTypes.object,
     fetchUsers: PropTypes.func.isRequired,
+    updateUser: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, props) => ({
@@ -79,7 +76,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = {
-    fetchUsers
+    fetchUsers,
+    updateUser
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserContainer));

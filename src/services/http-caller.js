@@ -5,7 +5,7 @@ export const get = url =>
                 });   
 
 export const put = (url, id, obj) => 
-                fetch(`${url}/${id}`, {
+                fetch(`${url}${id}`, {
                         method: 'PUT',
                         body: JSON.stringify(obj),
                         headers: new Headers({
