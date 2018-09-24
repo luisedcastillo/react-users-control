@@ -1,23 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { reduxForm, Field } from 'redux-form';
+
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
-import LockIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
-
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-// import './styles.css';
+import {convertGenderToUrlPath} from './../../../services/user-converters';
 
-const EditUserForm = () => {
+
+const MyCustomField = ({input, meta, type, name, label}) => (
+    <TextField
+        {...input}
+        error={meta.error}
+        required
+        type={type ? type : 'text'}
+        id={name}
+        name={name}
+        label={label}
+        value={name}
+        fullWidth
+        autoComplete={name}
+    />
+);
+
+const EditUserForm = ({user, onBack, onSubmit, submitting}) => {
+    const { id, gender } = user;
+    const genderUrl = convertGenderToUrlPath(gender);
+
     return(
         /* jshint ignore:start */ // JSX is not supported
         <div>
@@ -25,76 +39,86 @@ const EditUserForm = () => {
                 <Row center="xs"> 
                     <Col sm={12} lg={8}>
                     <Paper className="form-container">
-                        <Avatar>
-                            <LockIcon />
-                        </Avatar>
-                        <Typography variant="headline">Edit</Typography>
-                        <Grid>
+                        <form onSubmit={onSubmit}>
+                            <Grid>
+                            <Row center="xs">
+                                <Col xs={12}>
+                                    <Avatar
+                                        alt={id.toString()}
+                                        src={`https://randomuser.me/api/portraits/${genderUrl}/${id}.jpg`}
+                                        className="user-avatar-edit"  />
+                                </Col>
+                                <Col xs={12} className="user-content">
+                                    <Typography variant="headline">User Information</Typography>
+                                </Col>
+                            </Row>
                             <Row>
                                 <Col xs={12}>
-                                    <TextField
-                                        required
-                                        id="firstName"
-                                        name="firstName"
+                                    <Field 
+                                        name="name"
+                                        type="text"
                                         label="Name"
-                                        fullWidth
-                                        autoComplete="fname"
-                                    />
+                                        component={MyCustomField}>
+                                    </Field>
                                 </Col>
                                 <Col xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="firstName"
-                                        name="firstName"
+                                     <Field 
+                                        name="username"
+                                        type="text"
                                         label="User Name"
-                                        fullWidth
-                                        autoComplete="fname"
-                                    />
+                                        component={MyCustomField}>
+                                    </Field>
                                 </Col>
                                 <Col xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="firstName"
-                                        name="firstName"
+                                    <Field 
+                                        name="email"
+                                        type="text"
                                         label="Email"
-                                        fullWidth
-                                        autoComplete="fname"
-                                    />
+                                        component={MyCustomField}>
+                                    </Field>
                                 </Col>
                                 <Col xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="firstName"
-                                        name="firstName"
+                                    <Field 
+                                        name="phone"
+                                        type="text"
                                         label="Phone"
-                                        fullWidth
-                                        autoComplete="fname"
-                                    />
+                                        component={MyCustomField}>
+                                    </Field>                                
                                 </Col>
                                 <Col xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="firstName"
-                                        name="firstName"
+                                    <Field 
+                                        name="website"
+                                        type="text"
                                         label="Website"
-                                        fullWidth
-                                        autoComplete="fname"
-                                    />
+                                        component={MyCustomField}>
+                                    </Field>    
                                 </Col>
-                                <Col xs={2}>
-                                    <Button
-                                    variant="contained"
-                                    color="secondary">
-                                    Cancel
+                                </Row>
+                                <Row end="xs" className="user-content">
+                                <Col xs={5} sm={3} md={2}>
+                                    <Button 
+                                        disabled={submitting}
+                                        onClick={onBack}
+                                        fullWidth
+                                        variant="contained"
+                                        color="secondary">
+                                        Cancel
                                     </Button>
+                                </Col>
+                                <Col xs={4} sm={2} md={1}>
+                                    <button type="submit" disabled={submitting}>Aceptar</button>
                                     <Button
-                                    variant="contained"
-                                    color="primary">
-                                    Save
+                                        type="submit"
+                                        disabled={submitting}
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary">
+                                        Save
                                     </Button>
                                 </Col>
                             </Row>
                         </Grid>
+                        </form>
                     </Paper>
                     </Col>
                 </Row>
@@ -104,5 +128,13 @@ const EditUserForm = () => {
     );
 };
 
+EditUserForm.propTypes = {
+    user: PropTypes.object.isRequired,
+    onBack: PropTypes.func,
+}
 
-export default EditUserForm;
+const reduxFormConfig = {
+    form: "EditUserForm"
+}
+
+export default reduxForm(reduxFormConfig)(EditUserForm);

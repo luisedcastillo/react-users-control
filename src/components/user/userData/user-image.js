@@ -12,10 +12,10 @@ const UserImage = ({userId, gender}) => {
 
     return (
          /* jshint ignore:start */ // JSX is not supported
-        <div>
-            <Grid className="user-info">
-                <Row center="xs">
-                    <Col>
+        <div className="custom-style">
+            <Grid >
+                <Row center="xs" >
+                    <Col xs={12}>
                         <Avatar
                         alt={userId.toString()}
                         src={`https://randomuser.me/api/portraits/${genderUrl}/${userId}.jpg`}

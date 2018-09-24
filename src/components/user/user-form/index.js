@@ -1,77 +1,111 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
-import LockIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import MailOutline from '@material-ui/icons/MailOutline';
+import PhoneAndroid from '@material-ui/icons/PhoneAndroid';
+import Web from '@material-ui/icons/Web';
+import Person from '@material-ui/icons/Person';
 
-import UserImage from './../../../components/user/userData/user-image';
 
-const ViewUserForm = ({user}) => {
+import {convertGenderToUrlPath} from './../../../services/user-converters';
+
+const ViewUserForm = ({user, onBack}) => {
 
     const { id, name, username, email, phone, website, gender } = user;
+    const genderUrl = convertGenderToUrlPath(gender);
 
     return(
-    <div>
         <Grid>
-            <Row center="xs"> 
-                <Col sm={12} lg={8}>
-                <Paper className="form-container">
-                    <Row center="xs">
-                        <Col xs={1}>
-                            <UserImage userId={id} gender={gender}></UserImage>
-                        </Col>
-                    </Row>
-                    <Grid>
-                        <Row>
-                            <Col xs={12}>
-                                <Typography variant="headline" gutterBottom>
-                                    {name}
-                                </Typography>
-                            </Col>
-                            <Col xs={12} sm={6}>
-                                <Typography variant="subheading" gutterBottom>
-                                    {username}
-                                </Typography>
-                            </Col>
-                            <Col xs={12} sm={6}>
-                                <Typography variant="subheading" gutterBottom>
-                                    {email}
-                                </Typography>
-                            </Col>
-                            <Col xs={12} sm={6}>
-                                <Typography variant="subheading" gutterBottom>
-                                    {phone}
-                                </Typography>
-                            </Col>
-                            <Col xs={12} sm={6}>
-                                <Typography variant="subheading" gutterBottom>
-                                    {website}
-                                </Typography>
-                            </Col>
-                            <Col xsOffset={10} xs={2}>
-                                <Button
-                                    variant="contained"
-                                    color="primary">
-                                    Back
-                                </Button>
-                            </Col>
-                        </Row>
-                    </Grid>
-                </Paper>
+            <Row center="xs">
+                <Col sm={12} lg={6}>
+                      <Card className="card"> 
+                        <CardMedia
+                            className="card-media"
+                            image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
+                            title="Male User"
+                        />
+                        <CardContent className="card-content">
+
+                        <Grid>
+                            <Row start="xs" >
+                                <Col xs={12} sm={6} lg={4}>
+                                    <Avatar
+                                    alt={id.toString()}
+                                    src={`https://randomuser.me/api/portraits/${genderUrl}/${id}.jpg`}
+                                    className="user-avatar-details"  />
+                                </Col>
+                                <Col xs={12} sm={6} lg={8}>
+                                    <Typography gutterBottom variant="headline" component="h2" className="name-text">
+                                        {name}
+                                    </Typography>
+                                </Col>
+                            </Row>
+                            <Row start="xs" className="user-content">
+                                <Col xs={1}>
+                                    <PhoneAndroid></PhoneAndroid>
+                                </Col>
+                                <Col xs={11} sm={5}>
+                                    <Typography component="p">
+                                        {phone}
+                                    </Typography>
+                                </Col>
+                                <Col xs={1}>
+                                    <MailOutline></MailOutline>
+                                </Col>
+                                <Col xs={11} sm={5}>
+                                    <Typography component="p">
+                                        {email}
+                                    </Typography>
+                                </Col>
+                            </Row>
+                            <Row start="xs">
+                                <Col xs={1}>
+                                    <Web></Web>
+                                </Col>
+                                <Col xs={11} sm={5}>
+                                    <Typography component="p">
+                                        {website}
+                                    </Typography>
+                                </Col>
+                                <Col xs={1}>
+                                    <Person></Person>
+                                </Col>
+                                <Col xs={11} sm={5}>
+                                    <Typography component="p">
+                                        {username}
+                                    </Typography>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xsOffset={10} xs={2}>
+                                    <Button
+                                        onClick={onBack}
+                                        variant="contained"
+                                        color="primary">
+                                        Back
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Grid>
+                        </CardContent>
+                    </Card>
                 </Col>
             </Row>
         </Grid>
-    </div>
+        
 );
     }
 
 ViewUserForm.propTypes = {
     user: PropTypes.object.isRequired,
+    onBack: PropTypes.func,
 }
 
 export default ViewUserForm;

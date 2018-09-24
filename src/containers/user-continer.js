@@ -36,7 +36,9 @@ class UserContainer extends Component {
            ({match}) => {
                const CustomerControl = match ? EditUserForm : ViewUserForm;
                return <CustomerControl
-                       user={user}></CustomerControl>
+                       user={user}
+                       onSubmit={this.handleSubmitUser} 
+                       onBack={this.handleOnBack}></CustomerControl>
            } 
         } />
     )

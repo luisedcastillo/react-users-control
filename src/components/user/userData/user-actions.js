@@ -25,6 +25,6 @@ const UserActions = ({baseUrl, userId}) => {
 UserActions.propTypes = {
     baseUrl: PropTypes.string.isRequired,
     userId: PropTypes.number.isRequired,
-}
+};
 
 export default UserActions;
