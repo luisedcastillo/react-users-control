@@ -16,19 +16,25 @@ class UserContainer extends Component {
         if(!this.props.user){
             this.props.fetchUsers();
         }
-    }
+    };
 
     handleSubmitUser = values => {
         console.log("Handle UPDATE");
-    }
+
+        console.log(values);
+        //debugger;
+        //const { id } = values;
+        //return this.props.updateCustomer(id, values);
+
+    };
 
     handleSubmitUserSuccess = () => {
         this.handleOnBack();
-    }
+    };
     
     handleOnBack = () => {
         this.props.history.goBack();
-    }
+    };
 
     renderBody = user => (
 
@@ -36,7 +42,7 @@ class UserContainer extends Component {
            ({match}) => {
                const CustomerControl = match ? EditUserForm : ViewUserForm;
                return <CustomerControl
-                       user={user}
+                       {...user}
                        onSubmit={this.handleSubmitUser} 
                        onBack={this.handleOnBack}></CustomerControl>
            } 

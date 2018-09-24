@@ -16,9 +16,9 @@ import Person from '@material-ui/icons/Person';
 
 import {convertGenderToUrlPath} from './../../../services/user-converters';
 
-const ViewUserForm = ({user, onBack}) => {
+const ViewUserForm = ({id, name, username, email, phone, website, gender, onBack}) => {
 
-    const { id, name, username, email, phone, website, gender } = user;
+    //const { id, name, username, email, phone, website, gender } = user;
     const genderUrl = convertGenderToUrlPath(gender);
 
     return(
@@ -106,6 +106,13 @@ const ViewUserForm = ({user, onBack}) => {
 ViewUserForm.propTypes = {
     user: PropTypes.object.isRequired,
     onBack: PropTypes.func,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    website: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
 }
 
 export default ViewUserForm;

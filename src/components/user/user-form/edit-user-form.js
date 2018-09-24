@@ -11,7 +11,17 @@ import Avatar from '@material-ui/core/Avatar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import {convertGenderToUrlPath} from './../../../services/user-converters';
+import { withInitialValues } from './../../../higher-order-components/with-initial-values';
 
+const validateForm = values => {
+    const error = {};
+
+    if(!values.name){
+        error.name = 'El campo nombre es requerido';
+    }
+
+    return error;
+};
 
 const MyCustomField = ({input, meta, type, name, label}) => (
     <TextField
@@ -22,15 +32,24 @@ const MyCustomField = ({input, meta, type, name, label}) => (
         id={name}
         name={name}
         label={label}
-        value={name}
         fullWidth
         autoComplete={name}
     />
+    // <div>
+    //     <input {...input} type={type ? type : 'text'} />
+    // </div>
 );
 
-const EditUserForm = ({user, onBack, onSubmit, submitting}) => {
-    const { id, gender } = user;
+
+
+const EditUserForm = ({id, gender, onBack, handleSubmit, submitting}) => {
+    
     const genderUrl = convertGenderToUrlPath(gender);
+
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     onSubmit(e);
+    // };
 
     return(
         /* jshint ignore:start */ // JSX is not supported
@@ -39,7 +58,7 @@ const EditUserForm = ({user, onBack, onSubmit, submitting}) => {
                 <Row center="xs"> 
                     <Col sm={12} lg={8}>
                     <Paper className="form-container">
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={handleSubmit}>
                             <Grid>
                             <Row center="xs">
                                 <Col xs={12}>
@@ -106,7 +125,6 @@ const EditUserForm = ({user, onBack, onSubmit, submitting}) => {
                                     </Button>
                                 </Col>
                                 <Col xs={4} sm={2} md={1}>
-                                    <button type="submit" disabled={submitting}>Aceptar</button>
                                     <Button
                                         type="submit"
                                         disabled={submitting}
@@ -129,12 +147,21 @@ const EditUserForm = ({user, onBack, onSubmit, submitting}) => {
 };
 
 EditUserForm.propTypes = {
-    user: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func, 
+    submitting: PropTypes.bool,
     onBack: PropTypes.func,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    website: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
 }
 
 const reduxFormConfig = {
-    form: "EditUserForm"
+    form: 'EditUser',
+    validate: validateForm
 }
 
-export default reduxForm(reduxFormConfig)(EditUserForm);
+export default withInitialValues(reduxForm(reduxFormConfig)(EditUserForm));
