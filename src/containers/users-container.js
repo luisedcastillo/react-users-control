@@ -10,13 +10,13 @@ import ProgressIndicator from '../components/progress-indicator';
 import './styles.css';
 
 class UsersContainer extends Component {
-    
+
     componentDidMount() {
         //Redux implementation
         const {fillUsers} = this.props;
         fillUsers();
     }
-   
+  
     render() {
         const {users} = this.props;
         return (

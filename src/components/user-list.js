@@ -34,7 +34,7 @@ UserList.propTypes = {
         name: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         phone: PropTypes.string.isRequired,
-    })).isRequired,
+    })),
 };
 
 export default UserList;

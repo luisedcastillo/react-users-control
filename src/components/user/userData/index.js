@@ -27,21 +27,21 @@ const UserData = ({user}) => {
         // image="https://picsum.photos/300/200/?image=872&blur"
         // https://randomuser.me/api/portraits/men/4.jpg
         // https://picsum.photos/300/200/?image=257
-        <Card className="card">
-          <CardActionArea>
-            <CardMedia
-                className="card-media"
-                image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
-                title="Male User"
-            />
-            <CardContent className="card-content">
-                <UserImage userId={id} gender={gender}></UserImage>
-                <UserInfo name={name} email={email} phone={phone}></UserInfo>
-            </CardContent>
-            </CardActionArea>
+        <Card className="card" raised>
+            
+                <CardMedia
+                    className="card-media"
+                    image={require(`./../../../assets/images/${genderUrl}-back.jpg`)}
+                    title="Male User"
+                />
+                <CardContent className="card-content">
+                    <UserImage userId={id} gender={gender}></UserImage>
+                    <UserInfo name={name} email={email} phone={phone}></UserInfo>
+                </CardContent>
+            
             <CardActions>
-            {/* <Divider light /> */}
-            <UserActions></UserActions>
+                {/* <Divider light /> */}
+                <UserActions userId={id} baseUrl="Users"></UserActions>
           </CardActions>
         </Card>
      /* jshint ignore:end */

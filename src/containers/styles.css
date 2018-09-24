@@ -17,3 +17,9 @@
 .menu {
     background-color: inherit !important; 
 }
+
+.form-container {
+    margin-top: 25px;
+    padding: 30px;
+}
+
