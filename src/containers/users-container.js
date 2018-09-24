@@ -37,7 +37,7 @@ class UsersContainer extends Component {
 }
 
 UsersContainer.propTypes = {
-    fillUsers: PropTypes.func.isRequired,
+    fetchUsers: PropTypes.func.isRequired,
     users: PropTypes.array,
 };
 

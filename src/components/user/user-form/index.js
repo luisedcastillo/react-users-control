@@ -9,48 +9,55 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
 
-const ViewUserForm = () => (
+import UserImage from './../../../components/user/userData/user-image';
+
+const ViewUserForm = ({user}) => {
+
+    const { id, name, username, email, phone, website, gender } = user;
+
+    return(
     <div>
         <Grid>
             <Row center="xs"> 
                 <Col sm={12} lg={8}>
                 <Paper className="form-container">
-                    <Avatar>
-                        <LockIcon />
-                    </Avatar>
-                    <Typography variant="headline">View</Typography>
+                    <Row center="xs">
+                        <Col xs={1}>
+                            <UserImage userId={id} gender={gender}></UserImage>
+                        </Col>
+                    </Row>
                     <Grid>
                         <Row>
                             <Col xs={12}>
                                 <Typography variant="headline" gutterBottom>
-                                    Luis Eduardo Castillo Ramirez
+                                    {name}
                                 </Typography>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <Typography variant="subheading" gutterBottom>
-                                    luiseduardoc
+                                    {username}
                                 </Typography>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <Typography variant="subheading" gutterBottom>
-                                    luiseduardoc@hexaware.com
+                                    {email}
                                 </Typography>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <Typography variant="subheading" gutterBottom>
-                                    (614) 123 12 12
+                                    {phone}
                                 </Typography>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <Typography variant="subheading" gutterBottom>
-                                    www.hexaware.com
+                                    {website}
                                 </Typography>
                             </Col>
-                            <Col xs={2}>
+                            <Col xsOffset={10} xs={2}>
                                 <Button
-                                variant="contained"
-                                color="primary">
-                                Back
+                                    variant="contained"
+                                    color="primary">
+                                    Back
                                 </Button>
                             </Col>
                         </Row>
@@ -61,5 +68,10 @@ const ViewUserForm = () => (
         </Grid>
     </div>
 );
+    }
+
+ViewUserForm.propTypes = {
+    user: PropTypes.object.isRequired,
+}
 
 export default ViewUserForm;

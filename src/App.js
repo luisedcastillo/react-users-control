@@ -36,7 +36,7 @@ class App extends Component {
                       <Route exact path="/home" component={HomeContainer}></Route>
                       <Route exact path="/users" component={UsersContainer}></Route>
                       <Route exact path="/about" component={AboutContainer}></Route>
-                      <Route path="/users/:id" component={UserContainer}></Route>
+    <Route path="/users/:id" render={props => <UserContainer id={props.match.params.id} />}></Route>
                   </div>
               </Col>
             </Row>
