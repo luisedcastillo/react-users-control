@@ -42,34 +42,20 @@
     },
     {
       "id": 2,
-      "name": "Ervin Howell",
+      "name": "Ervin Howell Ali",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
-      "address": {
-        "street": "Victor Plains",
-        "suite": "Suite 879",
-        "city": "Wisokyburgh",
-        "zipcode": "90566-7771",
-        "geo": {
-          "lat": "-43.9509",
-          "lng": "-34.4618"
-        }
-      },
       "phone": "010-692-6593 x09125",
       "website": "anastasia.net",
-      "company": {
-        "name": "Deckow-Crist",
-        "catchPhrase": "Proactive didactic contingency",
-        "bs": "synergize scalable supply-chains"
-      }
+      "gender": "male"
     },
     {
       "id": 3,
-      "name": "Clementine Brion",
-      "username": "Samantha",
-      "email": "Nathan@yesenia.net",
-      "phone": "1-463-123-4447",
-      "website": "ramiro.info",
+      "name": "Samantha Brion",
+      "username": "SamanthaBr",
+      "email": "Samantha@yesenia.net",
+      "phone": "1-463-123-8888",
+      "website": "Samantha.info.com",
       "gender": "female"
     },
     {
@@ -215,23 +201,9 @@
       "name": "Clementina DuBuque",
       "username": "Moriah.Stanton",
       "email": "Rey.Padberg@karina.biz",
-      "address": {
-        "street": "Kattie Turnpike",
-        "suite": "Suite 198",
-        "city": "Lebsackbury",
-        "zipcode": "31428-2261",
-        "geo": {
-          "lat": "-38.2386",
-          "lng": "57.2232"
-        }
-      },
       "phone": "024-648-3804",
       "website": "ambrose.net",
-      "company": {
-        "name": "Hoeger LLC",
-        "catchPhrase": "Centralized empowering task-force",
-        "bs": "target end-to-end models"
-      }
+      "gender": "female"
     }
   ]
 }

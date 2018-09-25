@@ -40,6 +40,7 @@ class UserContainer extends Component {
                return <CustomerControl
                        {...user}
                        onSubmit={this.handleSubmitUser} 
+                       onSubmitSuccess = {this.handleSubmitUserSuccess}
                        onBack={this.handleOnBack}></CustomerControl>
            } 
         } />
