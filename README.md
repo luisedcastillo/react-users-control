@@ -5,13 +5,17 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Quick Start
 
-  `npm install`
-  `json-server --watch db.json --port 3030`
-  `npm start`
+```
+  npm install
+  json-server --watch db.json --port 3030
+  npm start
+```
 
-  If you don't have Json-Server
+  If you don't have json-server:
 
-  `npm install -g json-server`
+```
+  npm install -g json-server
+```
 
 ## Table of Contents
 
