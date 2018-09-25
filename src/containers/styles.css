@@ -23,3 +23,15 @@
     padding: 30px;
 }
 
+.about-container{
+    margin-top: 25px;
+    background-color: #424242 !important;
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+.home-container{
+    margin-top: 25px;
+    padding: 15px;
+}
+
